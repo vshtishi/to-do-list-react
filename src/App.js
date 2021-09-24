@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import data from "./data";
 import List from "./List";
 function App() {
+  const [errands, setErrands] = useState(data);
   return (
     <main>
       <section className="container">
-        <h3>No items</h3>
-        <List />
-        <button onClick={() => console.log("clicked")}>Clear All</button>
+        <h3>{errands.length} things to-do today</h3>
+        <List errands={errands} />
+        <button onClick={() => setErrands([])}>Clear All</button>
       </section>
     </main>
   );
